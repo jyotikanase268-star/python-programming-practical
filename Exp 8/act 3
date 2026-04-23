@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 23 04:52:20 2026
+
+@author: jyoti kanase
+"""
+
+try:
+    total_bill = float(input("Enter total bill amount: "))
+    people = int(input("Enter number of people: "))
+
+    if people <= 0:
+        print("Invalid input! Number of people must be greater than 0.")
+    else:
+        share = total_bill / people
+        print("Each person should pay:", share)
+
+except ValueError:
+    print("Invalid input! Please enter correct numbers.")
