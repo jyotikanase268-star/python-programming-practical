@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 23 04:50:14 2026
+
+@author: jyoti kanase
+"""
+
+try:
+    age = int(input("Enter your age: "))
+    
+    if age <= 0:
+        print("Invalid age! Age must be greater than 0.")
+    else:
+        print("Registration successful!")
+
+except ValueError:
+    print("Invalid input! Please enter a valid number.")
