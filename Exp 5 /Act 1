@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 16 05:12:34 2026
+
+@author: jyoti
+"""
+
+library={}
+library["python"]=200
+library["java"]=250
+library["c++"]=400
+print(library)
+book= input("Enter book name to update:")
+library[book] = int(input("Enter new price"))
+print(library)
