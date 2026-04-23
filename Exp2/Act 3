@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 23 09:45:53 2026
+
+@author: jyoti kanase4000
+"""
+
+salary = int(input("Enter your salary: "))
+
+if salary >= 25000:
+    print("Approved")
+else:
+    print("Rejected")
