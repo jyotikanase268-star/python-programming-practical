@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 23 10:51:52 2026
+
+@author: jyoti kanase
+"""
+
+# Create and append student attendance records
+
+# Open file in append mode (creates file if not exists)
+file = open("attendance.txt", "a")
+
+# Take number of students
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    name = input("Enter student name: ")
+    status = input("Enter attendance (Present/Absent): ")
+    
+    # Write record to file
+    file.write(name + " - " + status + "\n")
+
+print("Attendance records added successfully!")
+
+file.close()
