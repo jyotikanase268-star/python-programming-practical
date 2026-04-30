@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 30 11:05:14 2026
+
+@author: jyoti kanase
+"""
+
+import math
+
+# Input values
+P = float(input("Enter loan amount: "))
+R = float(input("Enter annual interest rate (%): "))
+T = int(input("Enter time (in years): "))
+
+# Convert annual rate to monthly rate
+r = R / (12 * 100)
+
+# Total number of months
+n = T * 12
+
+# EMI formula
+EMI = (P * r * math.pow(1 + r, n)) / (math.pow(1 + r, n) - 1)
+
+print("Monthly EMI =", round(EMI, 2))
