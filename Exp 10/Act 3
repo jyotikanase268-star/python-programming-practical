@@ -1,0 +1,68 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 30 05:41:11 2026
+
+@author: jyoti kanase
+"""
+
+import streamlit as st
+
+st.set_page_config(page_title="Student Result Calculator", page_icon="🎓")
+
+st.title("🎓 Student Result Calculator")
+
+st.write("Enter marks for each subject to calculate result")
+
+# Number of subjects
+num_subjects = st.number_input("Number of Subjects", min_value=1, max_value=10, value=5)
+
+marks = []
+
+st.subheader("Enter Marks")
+
+# Input marks dynamically
+for i in range(int(num_subjects)):
+    mark = st.number_input(f"Subject {i+1} Marks", min_value=0.0, max_value=100.0, key=i)
+    marks.append(mark)
+
+# Calculate result
+if st.button("Calculate Result"):
+    total = sum(marks)
+    percentage = total / num_subjects
+
+    st.subheader(f"Total Marks: {total:.2f}")
+    st.subheader(f"Percentage: {percentage:.2f}%")
+
+    # Grade logic
+    if percentage >= 90:
+        grade = "A+"
+        st.success("Excellent performance!")
+    elif percentage >= 75:
+        grade = "A"
+        st.success("Very good performance!")
+    elif percentage >= 60:
+        grade = "B"
+        st.info("Good performance!")
+    elif percentage >= 50:
+        grade = "C"
+        st.warning("Average performance.")
+    elif percentage >= 40:
+        grade = "D"
+        st.warning("Needs improvement.")
+    else:
+        grade = "F"
+        st.error("Fail. Better luck next time.")
+
+    # Pass/Fail check
+    if any(m < 40 for m in marks):
+        result = "Fail"
+        st.error("Result: FAIL (One or more subjects below 40)")
+    else:
+        result = "Pass"
+        st.success("Result: PASS")
+
+    st.write(f"Grade: **{grade}**")
+
+# Optional reset button
+if st.button("Reset"):
+    st.rerun()
