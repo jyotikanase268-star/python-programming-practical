@@ -1,0 +1,50 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 30 05:38:11 2026
+
+@author: jyoti kanase
+"""
+
+import streamlit as st
+
+st.set_page_config(page_title="BMI Health Checker", page_icon="⚖️")
+
+st.title("⚖️ BMI Health Checker")
+
+st.write("Enter your details to calculate your Body Mass Index (BMI)")
+
+# Input fields
+col1, col2 = st.columns(2)
+
+with col1:
+    height = st.number_input("Height (in cm)", min_value=50.0, max_value=250.0, value=170.0)
+
+with col2:
+    weight = st.number_input("Weight (in kg)", min_value=10.0, max_value=300.0, value=70.0)
+
+# BMI Calculation
+if st.button("Calculate BMI"):
+    height_m = height / 100
+    bmi = weight / (height_m ** 2)
+
+    st.subheader(f"Your BMI: {bmi:.2f}")
+
+    # BMI Category
+    if bmi < 18.5:
+        category = "Underweight"
+        st.warning("You are underweight. Consider a balanced diet and consult a healthcare provider.")
+    elif 18.5 <= bmi < 24.9:
+        category = "Normal weight"
+        st.success("You have a healthy body weight. Keep it up!")
+    elif 25 <= bmi < 29.9:
+        category = "Overweight"
+        st.warning("You are overweight. Regular exercise and a healthy diet are recommended.")
+    else:
+        category = "Obese"
+        st.error("You are in the obese range. It's advisable to consult a healthcare professional.")
+
+    st.write(f"Category: **{category}**")
+
+# Extra info
+st.markdown("---")
+st.info("BMI is a simple index of weight-for-height commonly used to classify underweight, overweight, and obesity in adults.")
