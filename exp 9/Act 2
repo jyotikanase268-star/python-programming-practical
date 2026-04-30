@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 30 11:06:52 2026
+
+@author: jyoti kanase
+"""
+
+from datetime import date
+
+# Get today's date
+today = date.today()
+
+# Display the date
+print("Today's Date:", today)
